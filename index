@@ -1,0 +1,45 @@
+
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Simple Link Maker</title>
+       <style>
+           body { font-family: Arial, sans-serif; margin: 20px; }
+           input, button { width: 100%; margin-bottom: 10px; padding: 8px; }
+           .preview { border: 1px solid #ccc; padding: 10px; margin-top: 20px; }
+           img { max-width: 100%; height: auto; }
+       </style>
+   </head>
+   <body>
+
+       <h1>Simple Link Maker</h1>
+       <input type="text" id="text-input" placeholder="Enter your text here" />
+       <input type="url" id="image-url-input" placeholder="Enter image URL here" />
+       <button onclick="generatePreview()">Generate Preview</button>
+
+       <div class="preview" id="preview" style="display: none;">
+           <h2>Preview:</h2>
+           <p id="text-preview"></p>
+           <img id="image-preview" src="" alt="Image Preview" />
+       </div>
+
+       <script>
+           function generatePreview() {
+               const text = document.getElementById('text-input').value;
+               const imageUrl = document.getElementById('image-url-input').value;
+
+               if (!text || !imageUrl) {
+                   alert('Please enter both text and image URL!');
+                   return;
+               }
+
+               document.getElementById('text-preview').innerText = text;
+               document.getElementById('image-preview').src = imageUrl;
+               document.getElementById('preview').style.display = 'block';
+           }
+       </script>
+
+   </body>
+   </html>
